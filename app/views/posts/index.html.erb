@@ -23,7 +23,9 @@
             <div class="post-preview">
              <h2 class="post-title"> <%= link_to post.title, post %> </h2>
              <h3 class="post-subtitle"> <%= post.content.html_safe %> </h3>
+             <% if user_signed_in? %>
               <p> <%= link_to "Edit post", edit_post_path(post) %> | <%= link_to "Delete post", post, :data => {:confirm => "Are you sure?"}, :method => :delete %> </p>
+              <%end%>
               </div>
             <% end %>
 
@@ -35,14 +37,14 @@
                         <a href="#">Older Posts &rarr;</a>
                     </li>
                 </ul>
+                <%= will_paginate @posts %>
             </div>
         </div>
     </div>
 
     <hr>
 
-
-
-<p> <%= link_to "Create new post", new_post_path %> </p>
-  
+   <% if user_signed_in? %>
+   <p> <%= link_to "Create new post", new_post_path %> </p>
+   <% end %>
 

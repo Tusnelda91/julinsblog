@@ -34,6 +34,9 @@
 <p> <%= @post.content.html_safe %> </p>
 
 <small> <% @post.created_at %> </small>
+              <% if user_signed_in? %>
+              <p> <%= link_to "Edit post", edit_post_path(@post) %> | <%= link_to "Delete post", @post, :data => {:confirm => "Are you sure?"}, :method => :delete %> </p>
+              <%end%>
 
 </div>
 </div>

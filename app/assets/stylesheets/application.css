@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+.pagination {
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+
+nav.navbar.navbar-default.navbar-custom.navbar-fixed-top {
+	background-color: #000;
+}
+
+.main-content {
+	padding-top: 60px;
+}
