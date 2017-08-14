@@ -46,4 +46,9 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :content)
   end
+
+  def show
+    @comments = @post.comments.order("created_at DESC")
+  end
+
 end

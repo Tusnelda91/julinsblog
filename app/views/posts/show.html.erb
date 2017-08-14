@@ -38,6 +38,15 @@
               <p> <%= link_to "Edit post", edit_post_path(@post) %> | <%= link_to "Delete post", @post, :data => {:confirm => "Are you sure?"}, :method => :delete %> </p>
               <%end%>
 
+<%= render 'new_comment' %>
+<%= render 'comments' %>
+
+<% Comment.find(:all, :order => 'created_at DESC', :limit => 10).each do |comment| -%>
+    <p>
+        <%= comment.text %> on the post <%= comment.post.title %>
+    </p>
+<% end -%>
+
 </div>
 </div>
 </div>
