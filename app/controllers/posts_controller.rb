@@ -2,11 +2,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 2)
+    @posts = Post.paginate(:page => params[:page], :per_page => 5)
   end
 
   def new
-    @post = Post.new
+    @post = Post.new(params[:post])
   end
 
   def edit
@@ -23,9 +23,11 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
+ def show
     @post = Post.find(params[:id])
+    @comments = @post.comments.order("created_at DESC")
   end
+ 
 
   def update
      @post = Post.find(params[:id])
@@ -47,8 +49,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :content)
   end
 
-  def show
-    @comments = @post.comments.order("created_at DESC")
-  end
 
 end
+
+

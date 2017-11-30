@@ -7,4 +7,6 @@ class Post < ApplicationRecord
 end
 
 
-
+def highest_rating_comment
+	comments.rating_desc.first
+end
