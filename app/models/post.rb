@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   validates :title, :presence => true, :length => { :minimum => 5}, :uniqueness => true
-  validates :content, :presence => true, :length => { :maximum => 2000}
+  validates :content, :presence => true, :length => { :maximum => 5000}
 
   has_many :comments
   has_many :users
