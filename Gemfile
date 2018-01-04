@@ -38,7 +38,7 @@ gem 'tinymce-rails'
 
 gem 'devise'
 
-gem 'activeadmin'
+gem 'activeadmin' , github: 'activeadmin'
 
 gem 'will_paginate'
 
