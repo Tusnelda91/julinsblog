@@ -15,8 +15,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    #Weiterleitung auf post_path
-    if @post.save
+     if @post.save
       redirect_to posts_path
     else
       render "new"
@@ -39,11 +38,11 @@ class PostsController < ApplicationController
      end
   end
 
-  def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_path
-  end
+  #def destroy
+    #@post = Post.find(params[:id])
+    #@post.destroy
+    #redirect_to posts_path
+  #end
 
   def post_params
     params.require(:post).permit(:title, :content)
